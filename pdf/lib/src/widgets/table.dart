@@ -360,13 +360,13 @@ class Table extends Widget with SpanningWidget {
               decoration: cellDecoration == null
                   ? null
                   : cellDecoration(tableRow.length, cell, rowNum),
-              child: Text(
+              child: cell.runtimeType == String ? Text(
                 cellFormat == null
                     ? cell.toString()
                     : cellFormat(tableRow.length, cell),
                 style: isOdd ? oddCellStyle : cellStyle,
                 textAlign: textAlign,
-              ),
+              ) : cell,
             ),
           );
         }
